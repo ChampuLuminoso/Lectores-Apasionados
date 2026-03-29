@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lectores Apasionados – Ana María Montes</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/catalog.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ── BACKGROUND EFFECTS ── -->
+  <canvas id="stars-canvas"></canvas>
+  <div class="particles" id="particles"></div>
+
+  <!-- ── TOAST NOTIFICATION ── -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav>
+    <!-- Animated cats -->
+    <div class="nav-cats">
+      <!-- White cat -->
+      <svg class="cat-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="30" cy="38" rx="18" ry="14" fill="#f5f0ff" opacity="0.95"/>
+        <circle cx="30" cy="24" r="13" fill="#f5f0ff" opacity="0.95"/>
+        <polygon points="19,16 14,4 24,13" fill="#f5f0ff"/>
+        <polygon points="41,16 46,4 36,13" fill="#f5f0ff"/>
+        <polygon points="19,16 15,7 23,14" fill="#e8b4d8" opacity="0.7"/>
+        <polygon points="41,16 45,7 37,14" fill="#e8b4d8" opacity="0.7"/>
+        <ellipse cx="25" cy="23" rx="3" ry="3.5" fill="#7b3fa0"/>
+        <ellipse cx="35" cy="23" rx="3" ry="3.5" fill="#7b3fa0"/>
+        <ellipse cx="25.5" cy="23" rx="1.2" ry="2" fill="#111"/>
+        <ellipse cx="35.5" cy="23" rx="1.2" ry="2" fill="#111"/>
+        <polygon points="30,27 28,29 32,29" fill="#e8b4d8"/>
+        <line x1="30" y1="28" x2="14" y2="26" stroke="#7b3fa0" stroke-width="0.8" opacity="0.6"/>
+        <line x1="30" y1="29" x2="14" y2="31" stroke="#7b3fa0" stroke-width="0.8" opacity="0.6"/>
+        <line x1="30" y1="28" x2="46" y2="26" stroke="#7b3fa0" stroke-width="0.8" opacity="0.6"/>
+        <line x1="30" y1="29" x2="46" y2="31" stroke="#7b3fa0" stroke-width="0.8" opacity="0.6"/>
+        <path d="M47 46 Q56 38 54 30 Q52 24 48 28" stroke="#f5f0ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <!-- Black cat -->
+      <svg class="cat-svg cat-black" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="30" cy="38" rx="18" ry="14" fill="#1a0a2e" opacity="0.98"/>
+        <circle cx="30" cy="24" r="13" fill="#1a0a2e" opacity="0.98"/>
+        <polygon points="19,16 14,4 24,13" fill="#1a0a2e"/>
+        <polygon points="41,16 46,4 36,13" fill="#1a0a2e"/>
+        <polygon points="19,16 15,7 23,14" fill="#7b3fa0" opacity="0.6"/>
+        <polygon points="41,16 45,7 37,14" fill="#7b3fa0" opacity="0.6"/>
+        <ellipse cx="25" cy="23" rx="3" ry="3.5" fill="#b8e000"/>
+        <ellipse cx="35" cy="23" rx="3" ry="3.5" fill="#b8e000"/>
+        <ellipse cx="25.5" cy="23" rx="1.2" ry="2" fill="#060610"/>
+        <ellipse cx="35.5" cy="23" rx="1.2" ry="2" fill="#060610"/>
+        <polygon points="30,27 28,29 32,29" fill="#9b6fa0"/>
+        <line x1="30" y1="28" x2="14" y2="26" stroke="#7b3fa0" stroke-width="0.8" opacity="0.8"/>
+        <line x1="30" y1="29" x2="14" y2="31" stroke="#7b3fa0" stroke-width="0.8" opacity="0.8"/>
+        <line x1="30" y1="28" x2="46" y2="26" stroke="#7b3fa0" stroke-width="0.8" opacity="0.8"/>
+        <line x1="30" y1="29" x2="46" y2="31" stroke="#7b3fa0" stroke-width="0.8" opacity="0.8"/>
+        <path d="M47 46 Q56 38 54 30 Q52 24 48 28" stroke="#2d1a50" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Brand -->
+    <div class="nav-brand">
+      LECTORES APASIONADOS
+      <span>✦ Una página de lectores para lectores ✦</span>
+    </div>
+
+    <!-- Links + language toggle -->
+    <div class="nav-links">
+      <a href="#" class="active" onclick="showPage('home', this)">
+        <span id="t-inicio">Inicio</span>
+      </a>
+      <a href="#" onclick="showPage('catalogo', this)">
+        <span id="t-catalogo">Catálogo</span>
+      </a>
+      <a href="#" onclick="showPage('nosotros', this)">
+        <span id="t-nosotros">Nosotros</span>
+      </a>
+      <button class="lang-btn" onclick="toggleLang()">
+        <span id="lang-label">EN</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       SIDEBAR
+  ══════════════════════════════════════════ -->
+  <button class="sidebar-toggle" id="sidebar-toggle" onclick="toggleSidebar()">
+    ☰ MENÚ
+  </button>
+
+  <aside id="sidebar">
+    <div class="sidebar-section">
+      <h3 id="s-menu">✦ Menú</h3>
+      <a class="sidebar-link" href="#" onclick="showPage('home',null);toggleSidebar()">
+        <span class="icon">🏠</span><span id="s-inicio">Inicio</span>
+      </a>
+      <a class="sidebar-link" href="#" onclick="showPage('catalogo',null);toggleSidebar()">
+        <span class="icon">📚</span><span id="s-catalogo">Catálogo Completo</span>
+      </a>
+      <a class="sidebar-link" href="#" onclick="showPage('nosotros',null);toggleSidebar()">
+        <span class="icon">🌙</span><span id="s-nosotros">Nosotros</span>
+      </a>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <h3 id="s-cajas">✦ Cajas Literarias</h3>
+      <a class="sidebar-link" href="#" onclick="showPage('catalogo',null);toggleSidebar()">
+        <span class="icon">🔮</span><span id="s-brujas">Brujas & Magia</span>
+      </a>
+      <a class="sidebar-link" href="#" onclick="showPage('catalogo',null);toggleSidebar()">
+        <span class="icon">🌌</span><span id="s-fantasia">Alta Fantasía</span>
+      </a>
+      <a class="sidebar-link" href="#" onclick="showPage('catalogo',null);toggleSidebar()">
+        <span class="icon">🌹</span><span id="s-romance">Romance Oscuro</span>
+      </a>
+      <a class="sidebar-link" href="#" onclick="showPage('catalogo',null);toggleSidebar()">
+        <span class="icon">🗡️</span><span id="s-accion">Acción & Aventura</span>
+      </a>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <h3 id="s-redes">✦ Redes</h3>
+      <a class="sidebar-link" href="https://instagram.com/daydreaming" target="_blank">
+        <span class="icon">📸</span>@daydreaming
+      </a>
+      <a class="sidebar-link" href="https://instagram.com/anamaria.montes" target="_blank">
+        <span class="icon">📖</span>@anamaria.montes
+      </a>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════════
+       MAIN — PÁGINAS
+  ══════════════════════════════════════════ -->
+  <main>
+
+    <!-- ─── PÁGINA: INICIO ─── -->
+    <div id="page-home" class="page active">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="moon"></div>
+        <div class="witch-hat">🧙‍♀️</div>
+        <p class="hero-eyebrow" id="h-eyebrow">✦ Por Ana María Montes ✦</p>
+        <h1 class="hero-title" id="h-title">Lectores<br>Apasionados</h1>
+        <p class="hero-subtitle" id="h-subtitle">✦ Una página de lectores para lectores ✦</p>
+        <p class="hero-tagline" id="h-tagline">
+          Donde cada caja literaria esconde un mundo por descubrir.<br>
+          Entre páginas, magia y estrellas — bienvenida, lectora.
+        </p>
+        <div class="hero-cta">
+          <a class="btn-primary" onclick="showPage('catalogo',null)" id="h-cta1">✨ Ver Cajas Literarias</a>
+          <a class="btn-outline" onclick="showPage('nosotros',null)" id="h-cta2">Nuestra Historia</a>
+        </div>
+      </section>
+
+      <!-- Mini catálogo (abrebocas) -->
+      <div class="section-title">
+        <h2 id="mc-title">Cajas Destacadas</h2>
+        <p id="mc-sub">Un pequeño abrebocas de nuestra colección mágica</p>
+        <div class="divider"></div>
+      </div>
+      <div class="catalog-grid" id="home-catalog"></div>
+
+      <!-- Separador -->
+      <div class="sep">✦ ✦ ✦</div>
+
+      <!-- About preview -->
+      <section class="about-section">
+        <div class="about-avatar">
+          <div class="avatar-circle">🌙</div>
+          <p class="avatar-name">Ana María Montes</p>
+          <p class="avatar-handle">✦ DAYDREAMING ✦</p>
+        </div>
+        <div class="about-text">
+          <h2 id="ab-title">Sobre la Creadora</h2>
+          <p id="ab-p1">Soy una chica lectora buscando escribir <em>una nueva historia</em>. Este espacio nació del amor profundo por los libros, las noches estrelladas y la magia que vive entre las páginas.</p>
+          <p id="ab-p2">Lectores Apasionados es mi forma de compartir ese amor con el mundo — curada caja por caja, con todo el corazón.</p>
+          <a class="btn-outline" onclick="showPage('nosotros',null)" id="ab-btn">Conoce más →</a>
+        </div>
+      </section>
+
+      <!-- Footer home -->
+      <footer>
+        <p class="footer-brand">Lectores Apasionados</p>
+        <p class="footer-tagline" id="f-tag">✦ Una página de lectores para lectores ✦</p>
+        <div class="social-links">
+          <a class="social-card" href="https://instagram.com/daydreaming" target="_blank">
+            <span class="social-icon">📸</span>
+            <div class="social-info">
+              <div class="social-label">Instagram</div>
+              <div class="social-handle">@daydreaming</div>
+            </div>
+          </a>
+          <a class="social-card" href="https://instagram.com/anamaria.montes" target="_blank">
+            <span class="social-icon">🌙</span>
+            <div class="social-info">
+              <div class="social-label">Instagram</div>
+              <div class="social-handle">@anamaria.montes</div>
+            </div>
+          </a>
+        </div>
+        <p class="footer-copy" id="f-copy">© 2025 Lectores Apasionados · Por Ana María Montes · Todos los derechos reservados</p>
+      </footer>
+    </div>
+
+    <!-- ─── PÁGINA: CATÁLOGO ─── -->
+    <div id="page-catalogo" class="page">
+      <div class="catalog-page-header">
+        <h1 id="cat-title">📚 Catálogo Completo</h1>
+        <p id="cat-sub">Explora todas nuestras cajas literarias mágicas</p>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" id="f-all"  onclick="filterCatalog('all',   this)">Todas</button>
+        <button class="filter-btn"        id="f-mag"  onclick="filterCatalog('magia', this)">Brujas & Magia</button>
+        <button class="filter-btn"        id="f-fan"  onclick="filterCatalog('fantasia',this)">Alta Fantasía</button>
+        <button class="filter-btn"        id="f-rom"  onclick="filterCatalog('romance',this)">Romance Oscuro</button>
+        <button class="filter-btn"        id="f-av"   onclick="filterCatalog('accion', this)">Acción</button>
+      </div>
+      <div class="catalog-full" id="full-catalog"></div>
+      <footer>
+        <p class="footer-brand">Lectores Apasionados</p>
+        <p class="footer-tagline" id="f-tag2">✦ Una página de lectores para lectores ✦</p>
+        <div class="social-links">
+          <a class="social-card" href="https://instagram.com/daydreaming" target="_blank">
+            <span class="social-icon">📸</span>
+            <div class="social-info">
+              <div class="social-label">Instagram</div>
+              <div class="social-handle">@daydreaming</div>
+            </div>
+          </a>
+        </div>
+        <p class="footer-copy" id="f-copy2">© 2025 Lectores Apasionados · Por Ana María Montes</p>
+      </footer>
+    </div>
+
+    <!-- ─── PÁGINA: NOSOTROS ─── -->
+    <div id="page-nosotros" class="page">
+      <div class="nosotros-hero">
+        <h1 id="nos-title">Sobre Nosotras</h1>
+        <p id="nos-sub">Las almas detrás de cada caja mágica</p>
+        <div class="sep" style="padding:10px">✦ ✦ ✦</div>
+      </div>
+      <div class="nosotros-cards">
+        <div class="nosotros-card">
+          <div class="nc-avatar">🌙</div>
+          <p class="nc-name">Ana María Montes</p>
+          <p class="nc-role" id="nc-role1">✦ Fundadora & Lectora Apasionada ✦</p>
+          <p class="nc-bio" id="nc-bio1">
+            Soy una chica lectora buscando escribir una nueva historia. Nací entre libros y magia, y desde pequeña soñé con crear un espacio donde las lectoras pudieran encontrar algo especial. Cada caja literaria que curé lleva un pedazo de mi corazón.<br><br>
+            <em>@daydreaming · @anamaria.montes</em>
+          </p>
+        </div>
+        <div class="nosotros-card">
+          <div class="nc-avatar">✨</div>
+          <p class="nc-name">Lectores Apasionados</p>
+          <p class="nc-role" id="nc-role2">✦ Nuestra Historia ✦</p>
+          <p class="nc-bio" id="nc-bio2">
+            Este proyecto nació de una idea sencilla pero poderosa: que cada libro merece llegar de forma mágica a manos de quien lo ama. Nuestras cajas literarias son experiencias completas — libros, señaladores, velas, sorpresas y amor en cada detalle.<br><br>
+            Somos una comunidad. Somos lectores para lectores.
+          </p>
+        </div>
+      </div>
+      <footer>
+        <p class="footer-brand">Lectores Apasionados</p>
+        <p class="footer-tagline">✦ Una página de lectores para lectores ✦</p>
+        <div class="social-links">
+          <a class="social-card" href="https://instagram.com/daydreaming" target="_blank">
+            <span class="social-icon">📸</span>
+            <div class="social-info">
+              <div class="social-label">Instagram</div>
+              <div class="social-handle">@daydreaming</div>
+            </div>
+          </a>
+          <a class="social-card" href="https://instagram.com/anamaria.montes" target="_blank">
+            <span class="social-icon">🌙</span>
+            <div class="social-info">
+              <div class="social-label">Instagram</div>
+              <div class="social-handle">@anamaria.montes</div>
+            </div>
+          </a>
+        </div>
+        <p class="footer-copy">© 2025 Lectores Apasionados · Por Ana María Montes</p>
+      </footer>
+    </div>
+
+  </main>
+
+  <!-- ── SCRIPTS ── -->
+  <script src="js/data.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

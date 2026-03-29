@@ -1,0 +1,169 @@
+/* ============================================================
+   catalog.css — Cuadrícula y tarjetas del catálogo
+   ============================================================ */
+
+/* ── Grid del abrebocas (inicio) ── */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+  padding: 20px 50px 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ── Header de la página catálogo ── */
+.catalog-page-header {
+  text-align: center;
+  padding: 80px 40px 40px;
+  background: linear-gradient(180deg, rgba(50,10,80,0.3), transparent);
+}
+.catalog-page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--white);
+  text-shadow: 0 0 40px rgba(181, 110, 224, 0.6);
+  margin-bottom: 12px;
+}
+.catalog-page-header p {
+  color: rgba(245, 240, 255, 0.6);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* ── Filtros ── */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 0 40px 40px;
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(123, 63, 160, 0.4);
+  color: rgba(245, 240, 255, 0.65);
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  transition: all 0.3s;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: rgba(123, 63, 160, 0.25);
+  border-color: var(--purple-light);
+  color: var(--purple-glow);
+}
+
+/* ── Grid catálogo completo ── */
+.catalog-full {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 0 50px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Tarjeta de libro / caja ── */
+.book-card {
+  background: rgba(15, 10, 26, 0.9);
+  border: 1px solid rgba(123, 63, 160, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+}
+.book-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(123,63,160,0.05), transparent);
+  z-index: 0;
+}
+.book-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(181, 110, 224, 0.7);
+  box-shadow: 0 20px 60px rgba(100, 30, 150, 0.5);
+}
+
+/* Imagen / placeholder de la caja */
+.book-placeholder {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.book-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10,8,20,0.9));
+}
+
+/* Info de la tarjeta */
+.book-info {
+  padding: 18px 20px;
+  position: relative;
+  z-index: 1;
+}
+.book-tag {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.book-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.book-desc {
+  font-size: 0.95rem;
+  color: rgba(245, 240, 255, 0.6);
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.book-price {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--purple-glow);
+  font-weight: 600;
+}
+.book-btn {
+  float: right;
+  background: rgba(123, 63, 160, 0.3);
+  border: 1px solid rgba(181, 110, 224, 0.5);
+  color: var(--purple-glow);
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.book-btn:hover {
+  background: rgba(123, 63, 160, 0.6);
+}
+
+/* ── Responsivo ── */
+@media (max-width: 768px) {
+  .catalog-grid,
+  .catalog-full { padding: 20px 20px 50px; }
+}

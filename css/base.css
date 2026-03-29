@@ -1,0 +1,146 @@
+/* ============================================================
+   base.css — Reset, body, scroll y utilidades generales
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23b56ee0' opacity='0.8'/%3E%3C/svg%3E") 10 10, auto;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--purple-light); }
+
+/* ── Canvas de estrellas y partículas ── */
+#stars-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ── Toast / notificación ── */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(123, 63, 160, 0.95);
+  border: 1px solid rgba(181, 110, 224, 0.6);
+  color: var(--white);
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  z-index: 9999;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.4s;
+  box-shadow: 0 8px 30px rgba(80, 20, 120, 0.6);
+}
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ── Chispas del cursor ── */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  animation: sparkleFade 0.7s ease forwards;
+}
+
+/* ── Páginas ── */
+main {
+  margin-left: 0;
+  padding-top: var(--nav-h);
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.page        { display: none; }
+.page.active { display: block; }
+
+/* ── Separador decorativo ── */
+.sep {
+  text-align: center;
+  padding: 20px;
+  color: rgba(181, 110, 224, 0.3);
+  font-size: 1.5rem;
+  letter-spacing: 12px;
+}
+
+/* ── Botones globales ── */
+.btn-primary {
+  background: linear-gradient(135deg, #7b3fa0, #b56ee0);
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 30px rgba(123, 63, 160, 0.5);
+  text-decoration: none;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 50px rgba(181, 110, 224, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--purple-glow);
+  border: 1px solid rgba(181, 110, 224, 0.6);
+  padding: 14px 36px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-outline:hover {
+  background: rgba(123, 63, 160, 0.15);
+  box-shadow: 0 0 20px rgba(181, 110, 224, 0.3);
+}
+
+/* ── Responsivo base ── */
+@media (max-width: 768px) {
+  .hero    { padding: 40px 20px; }
+  .moon    { width: 70px; height: 70px; top: 40px; }
+  .witch-hat { font-size: 3rem; }
+}

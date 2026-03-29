@@ -1,0 +1,24 @@
+/* ============================================================
+   variables.css — Tokens de diseño globales
+   Aquí puedes cambiar colores, fuentes y medidas del sitio
+   ============================================================ */
+
+:root {
+  /* Colores principales */
+  --bg:           #0a080f;
+  --bg2:          #0f0a1a;
+  --purple:       #7b3fa0;
+  --purple-light: #b56ee0;
+  --purple-glow:  #d4a8ff;
+  --white:        #f5f0ff;
+  --gold:         #c9a84c;
+
+  /* Layout */
+  --sidebar-w: 260px;
+  --nav-h:      70px;
+
+  /* Tipografía */
+  --font-display: 'Cinzel Decorative', cursive;
+  --font-heading: 'Cinzel', serif;
+  --font-body:    'Crimson Text', Georgia, serif;
+}

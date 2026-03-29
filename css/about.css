@@ -1,0 +1,118 @@
+/* ============================================================
+   about.css — Sección "Sobre la Creadora" y página Nosotros
+   ============================================================ */
+
+/* ── Preview en inicio ── */
+.about-section {
+  padding: 80px 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-avatar { text-align: center; position: relative; }
+
+.avatar-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3a1060, #7b3fa0, #b56ee0);
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  box-shadow: 0 0 60px rgba(123, 63, 160, 0.6);
+  animation: avatarGlow 4s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-circle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  border-radius: 50%;
+}
+
+.avatar-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--purple-glow);
+  margin-bottom: 4px;
+}
+.avatar-handle {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.about-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  color: var(--white);
+  text-shadow: 0 0 20px rgba(181, 110, 224, 0.4);
+  margin-bottom: 20px;
+}
+.about-text p {
+  color: rgba(245, 240, 255, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.about-text p em { color: var(--purple-glow); font-style: italic; }
+
+/* ── Página Nosotros ── */
+.nosotros-hero {
+  text-align: center;
+  padding: 80px 40px 30px;
+}
+.nosotros-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--white);
+  text-shadow: 0 0 30px rgba(181, 110, 224, 0.6);
+  margin-bottom: 12px;
+}
+.nosotros-hero p {
+  color: rgba(245, 240, 255, 0.55);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.nosotros-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 40px 50px 80px;
+}
+
+.nosotros-card {
+  background: rgba(15, 10, 26, 0.9);
+  border: 1px solid rgba(123, 63, 160, 0.35);
+  border-radius: 16px;
+  padding: 40px 36px;
+  max-width: 380px;
+  text-align: center;
+  transition: all 0.4s;
+}
+.nosotros-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(181, 110, 224, 0.6);
+  box-shadow: 0 20px 60px rgba(80, 20, 120, 0.4);
+}
+
+.nc-avatar { font-size: 4rem; margin-bottom: 16px; }
+.nc-name   { font-family: var(--font-display); font-size: 1.1rem; color: var(--purple-glow); margin-bottom: 4px; }
+.nc-role   { font-family: var(--font-heading); font-size: 0.65rem; letter-spacing: 3px; color: var(--gold); margin-bottom: 18px; }
+.nc-bio    { color: rgba(245, 240, 255, 0.7); font-size: 1rem; line-height: 1.7; font-style: italic; }
+
+/* ── Responsivo ── */
+@media (max-width: 768px) {
+  .about-section { grid-template-columns: 1fr; text-align: center; padding: 40px 24px; }
+}
