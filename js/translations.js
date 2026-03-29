@@ -7,7 +7,7 @@ let currentLang = 'es';
 
 const TRANSLATIONS = {
   es: {
-    'h-eyebrow':  '✦ Por Ana María Montes ✦',
+    'h-eyebrow':  '✦ Por Day Dreaming ✦',
     'h-title':    'Lectores<br>Apasionados',
     'h-subtitle': '✦ Una página de lectores para lectores ✦',
     'h-tagline':  'Donde cada caja literaria esconde un mundo por descubrir.<br>Entre páginas, magia y estrellas — bienvenida, lectora.',
@@ -52,7 +52,7 @@ const TRANSLATIONS = {
     'f-copy2':    '© 2025 Lectores Apasionados · Por Ana María Montes',
   },
   en: {
-    'h-eyebrow':  '✦ By Ana María Montes ✦',
+    'h-eyebrow':  '✦ By Day Dreaming ✦',
     'h-title':    'Passionate<br>Readers',
     'h-subtitle': '✦ A readers page for readers ✦',
     'h-tagline':  'Where every literary box hides a world to discover.<br>Between pages, magic and stars — welcome, reader.',
